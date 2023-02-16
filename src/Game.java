@@ -1,8 +1,12 @@
+import java.sql.Statement;
+
 public class Game {
     static int position;
-    int Dice;
+    int check;
+
+
     public static void main(String[] args) {
-       while(position <=100) {
+       while(position <100) {
            UC3();
        }
 
@@ -12,22 +16,28 @@ public class Game {
     }
 
     public static int UC2(){
-        Game G = new Game();
-            G.Dice = (int) ((Math.random() * 10) % 6 + 1);
-            return G.Dice;
+
+        int Dice = (int) ((Math.random() * 10) % 6 + 1);
+        return Dice;
+
     }
     public static void UC3(){
+
         int Move = (int) ((Math.random() * 10) % 3);
         if(Move == 0){
-            System.out.println("No PLay");
+            System.out.println("\nNo PLay");
         } else if (Move == 1) {
-            System.out.println("Ladder");
+            System.out.println("\nLadder");
             int dice = UC2();
             System.out.println("Dice : " +dice);
-            position = position + dice;;
+            int check = 100 - position;
+                position = position + dice;
+                UC5(dice,check);
+
+
             System.out.println("Your Position : " +position);
         }else {
-            System.out.println("Snake");
+            System.out.println("\nSnake");
             int dice = UC2();
             position = position - dice;
             System.out.println("Dice : " +dice);
@@ -37,5 +47,13 @@ public class Game {
             System.out.println("Your Position : " +position);
         }
     }
+    public static void UC5(int dice, int check){
+
+        if(position > 100){
+            System.out.println("position is going above 100\nyou need exact " +check+ " on dice");
+            position = position - dice;
+        }
+    }
+
 }
 
