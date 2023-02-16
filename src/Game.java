@@ -3,11 +3,13 @@ import java.sql.Statement;
 public class Game {
     static int position;
     int check;
+    static int roll;
 
 
     public static void main(String[] args) {
        while(position <100) {
            UC3();
+           UC6();
        }
 
     }
@@ -16,7 +18,7 @@ public class Game {
     }
 
     public static int UC2(){
-
+        roll++;
         int Dice = (int) ((Math.random() * 10) % 6 + 1);
         return Dice;
 
@@ -33,8 +35,6 @@ public class Game {
             int check = 100 - position;
                 position = position + dice;
                 UC5(dice,check);
-
-
             System.out.println("Your Position : " +position);
         }else {
             System.out.println("\nSnake");
@@ -52,6 +52,12 @@ public class Game {
         if(position > 100){
             System.out.println("position is going above 100\nyou need exact " +check+ " on dice");
             position = position - dice;
+        }
+    }
+    public static void UC6(){
+        if(position == 100) {
+            System.out.println("\nTotal Dice roll : " + roll);
+            System.out.println("You won the game ");
         }
     }
 
