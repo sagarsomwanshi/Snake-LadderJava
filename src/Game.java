@@ -56,7 +56,7 @@ public class Game {
     }
     public static void UC6(){
         if(position == 100) {
-            System.out.println("\nTotal Dice roll : " + roll);
+            System.out.println("\nTotal Dice rolls : " + roll);
             System.out.println("You won the game ");
         }
     }
