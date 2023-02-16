@@ -2,7 +2,9 @@ public class Game {
     static int position;
     int Dice;
     public static void main(String[] args) {
-        UC3();
+       while(position <=100) {
+           UC3();
+       }
 
     }
     public static void UC1(){
@@ -29,7 +31,9 @@ public class Game {
             int dice = UC2();
             position = position - dice;
             System.out.println("Dice : " +dice);
-
+            if(position < 0){
+                UC1();
+            }
             System.out.println("Your Position : " +position);
         }
     }
